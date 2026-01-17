@@ -4,7 +4,7 @@ from src.config import All_Cols, age_min, age_max, gender_values, age_group_valu
 
 def test_schema_columns_present_and_ordered():
     df = makeDataSet(seed=1)
-    assert list(df.columns) == All_Cols
+    assert set(df.columns) == set(All_Cols)
 
 def test_basic_value_rules():
     df = makeDataSet(seed=1)

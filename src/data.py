@@ -6,7 +6,7 @@ def makeDataSet(n=2000, seed=42) -> pd.DataFrame:
     rng = np.random.default_rng(seed) #This creates a modern numpy random generator object.
 
     age = rng.integers(18, 60, size=n) #Pick random integers between 18 and 59 total n rows
-    gender = rng.choice('F', 'M', size=n)
+    gender = rng.choice(['F', 'M'], size=n)
 
     #Income
     # generate values around mean = 35,000
@@ -56,11 +56,11 @@ def makeDataSet(n=2000, seed=42) -> pd.DataFrame:
     # Else → label becomes 0
 
     return pd.DataFrame({
-        "age": age
-        "gender": gender
-        "age_group": age_group
-        "income": income
-        "debt": debt
-        "savings": savings
+        "age": age,
+        "gender": gender,
+        "age_group": age_group,
+        "income": income,
+        "debt": debt,
+        "savings": savings,
         "label": y
     })

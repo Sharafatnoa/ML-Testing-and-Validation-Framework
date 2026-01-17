@@ -12,7 +12,7 @@ age_max = 60
 
 gender_values = ["F", "M"]
 age_group_values = ["18-25","26-40","41-60"]
-label_values = ['0','1']
+label_values = [0,1]
 
 #-----------------Quality Gates------------------
 MAX_MISSING_RATE = 0.02
