@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-def makeDataSet(n=2000, seed=42) -> pd.DataFrame:
+def makeDataSet(n=2000, seed=42, missing_rate=0.00) -> pd.DataFrame:
     rng = np.random.default_rng(seed) #This creates a modern numpy random generator object.
 
     age = rng.integers(18, 60, size=n) #Pick random integers between 18 and 59 total n rows
@@ -55,7 +55,7 @@ def makeDataSet(n=2000, seed=42) -> pd.DataFrame:
     # If random < probability → label becomes 1
     # Else → label becomes 0
 
-    return pd.DataFrame({
+    df = pd.DataFrame({
         "age": age,
         "gender": gender,
         "age_group": age_group,
@@ -64,3 +64,9 @@ def makeDataSet(n=2000, seed=42) -> pd.DataFrame:
         "savings": savings,
         "label": y
     })
+    #Inject missing values
+    if missing_rate > 0:
+        m = int(n * missing_rate)
+        idx = rng.choice(df.index, size=m, replace=False)
+        df.loc[idx, "savings"] = np.nan
+    return df
