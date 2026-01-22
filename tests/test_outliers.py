@@ -1,0 +1,14 @@
+from src.data import makeDataSet
+from src.config import MAX_MISSING_RATE, OUTLIER_Z_THRESH, numerical_cols, MAX_OUTLIER_RATE
+from src.validations import robust_outlier_rate
+
+def test_outlier_rate_under_threshold_for_numeric_column():
+    df = makeDataSet(seed=3)
+    numerical_cols_to_check = [ c for c in numerical_cols if c != "age" ]
+
+    for col in numerical_cols_to_check:
+        rate = robust_outlier_rate(df[col], z_thresh=OUTLIER_Z_THRESH)
+        assert rate <= MAX_OUTLIER_RATE , (
+            f"Outlier rate too high in '{col}': {rate:.3f}"
+            f"(threshold={MAX_OUTLIER_RATE}, z_thresh={OUTLIER_Z_THRESH})"
+        )

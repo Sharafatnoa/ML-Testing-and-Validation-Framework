@@ -17,3 +17,4 @@ label_values = [0,1]
 #-----------------Quality Gates------------------
 MAX_MISSING_RATE = 0.02
 MAX_OUTLIER_RATE = 0.02
+OUTLIER_Z_THRESH = 6.0
