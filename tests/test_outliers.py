@@ -3,7 +3,7 @@ from src.config import MAX_MISSING_RATE, OUTLIER_Z_THRESH, numerical_cols, MAX_O
 from src.validations import robust_outlier_rate
 
 def test_outlier_rate_under_threshold_for_numeric_column():
-    df = makeDataSet(seed=3)
+    df = makeDataSet(seed=3, missing_rate=0.05, outlier_rate=0.10)
     numerical_cols_to_check = [ c for c in numerical_cols if c != "age" ]
 
     for col in numerical_cols_to_check:

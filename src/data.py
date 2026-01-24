@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-def makeDataSet(n=2000, seed=42, missing_rate=0.00) -> pd.DataFrame:
+def makeDataSet(n=2000, seed=42, missing_rate=0.00, outlier_rate=0.00) -> pd.DataFrame:
     rng = np.random.default_rng(seed) #This creates a modern numpy random generator object.
 
     age = rng.integers(18, 60, size=n) #Pick random integers between 18 and 59 total n rows
@@ -69,4 +69,12 @@ def makeDataSet(n=2000, seed=42, missing_rate=0.00) -> pd.DataFrame:
         m = int(n * missing_rate)
         idx = rng.choice(df.index, size=m, replace=False)
         df.loc[idx, "savings"] = np.nan
+       
+    # Outlier injection
+    if outlier_rate > 0:
+        k = int(n * outlier_rate)
+        idx = rng.choice(df.index, size=k, replace=False)
+        # Make extreme outliers in income
+        df.loc[idx, "income"] = df["income"].median() * 50  # huge
+        
     return df
