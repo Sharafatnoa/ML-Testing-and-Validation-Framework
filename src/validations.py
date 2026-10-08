@@ -33,6 +33,6 @@ def robust_outlier_rate(series: pd.Series, z_thresh=6.0) -> float:
 
     if mad == 0:
         return 0.00
-    robust_z = 0.6745 * (x - mad) / mad
+    robust_z = 0.6745 * (x - med) / mad
     return float((np.abs(robust_z) > z_thresh ).mean())
 
