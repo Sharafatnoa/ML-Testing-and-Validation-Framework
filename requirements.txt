@@ -1,0 +1,6 @@
+numpy>=1.26
+pandas>=2.0
+pytest>=8.0
+
+# Planned (Phase 2): baseline model and model/fairness gates
+# scikit-learn>=1.4
