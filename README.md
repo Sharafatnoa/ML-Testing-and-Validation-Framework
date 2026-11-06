@@ -96,7 +96,7 @@ outlier if |robust_z| > 6.0
 | Method | Centre | Spread | Score for 40 | Caught at threshold 3.5? |
 |---|---|---|---|---|
 | Mean / std | 94 | 18.1 | −3.0 | ❌ No, the outlier hides itself |
-| Median / MAD | 100 | 1.5 | −27.0 | ✅ Yes |
+| Median / MAD | 100 | 1.5 | −27.0 |  Yes |
 
 The median and MAD barely move when one bad value is added, so the gate is stable and not flaky.
 
@@ -177,7 +177,7 @@ requirements.txt           dependencies
 
 ## Roadmap
 
-### Phase 1: Solid foundation ✅
+### Phase 1: foundation (Done)
 - [x] Fix the outlier formula (median, not MAD)
 - [x] Known-answer unit tests for `robust_outlier_rate`, including the MAD = 0 case
 - [x] Test that the missing-value gate **fails** when 5% of values are missing
@@ -226,4 +226,4 @@ The method borrows from mutation testing: plant known faults, then count how man
 
 ## Author
 
-**Shamsunnur Ibn Arefin**: MSc Data Science student at the University of Skövde, with 5+ years of experience as a software QA engineer. This project applies that QA background to machine learning systems.
+**Shamsunnur Ibn Arefin**: MSc Data Science student at the University of Skövde.
