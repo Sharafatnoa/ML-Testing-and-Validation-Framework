@@ -5,3 +5,11 @@ def test_missing_rate_under_threshold():
     df = makeDataSet(seed=2, missing_rate=0.0)
     max_missing = df.isna().mean().max()
     assert max_missing <= MAX_MISSING_RATE, f"Missing Rate is Too high: {max_missing:.3f}"
+
+def test_missing_value_gate_triggers_when_values_are_missing():
+    df = makeDataSet(seed=2, missing_rate=0.05)
+    max_missing = df.isna().mean().max()
+    assert max_missing > MAX_MISSING_RATE, (
+        f"Expected the missing-value gate to trigger, "
+        f"but the max missing rate was only {max_missing:.3f}"
+    )
