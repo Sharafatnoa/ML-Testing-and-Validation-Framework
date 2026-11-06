@@ -1,5 +1,5 @@
 from src.data import makeDataSet
-from src.config import MAX_MISSING_RATE, OUTLIER_Z_THRESH, numerical_cols, MAX_OUTLIER_RATE
+from src.config import OUTLIER_Z_THRESH, numerical_cols, MAX_OUTLIER_RATE
 from src.validations import robust_outlier_rate
 
 def test_outlier_rate_under_threshold_for_numeric_column():

@@ -20,10 +20,10 @@ MAX_OUTLIER_RATE = 0.02
 OUTLIER_Z_THRESH = 6.0
 
 #-----------------Fairness Gates-----------------
-MAX_TRP_Gap_Gender = 0.12
-MAX_TRP_Gap_Age_group = 0.15
+MAX_TPR_GAP_GENDER = 0.12
+MAX_TPR_GAP_AGE_GROUP = 0.15
 
 #------------------- Model Gate Settings ---------------------------
 TEST_SIZE = 0.25
-RANDOM_SEATE = 42
+RANDOM_SEED = 42
 PRED_THRESHOLD = 0.5
